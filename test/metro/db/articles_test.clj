@@ -1,6 +1,5 @@
 (ns metro.db.articles-test
-  (:require [io.pedestal.test :refer [response-for]]
-            [clojure.test :refer [deftest is are testing]]
+  (:require [clojure.test :refer [deftest is are testing]]
             [metro.components.db.articles :as articles]
             [metro.system-test :as test]))
 

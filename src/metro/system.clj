@@ -16,7 +16,6 @@
    ::http/resource-path "/public"})
 
 (defn system [env]
-  ;; Passing components to the main system
   (component/system-map
    :service-map (build-service-map env)
 
@@ -25,9 +24,13 @@
                :password "clojure"
                :host      (or (System/getenv "DB_HOST") "localhost")}
 
-   :db (component/using (postgres/new-database) [:db-config])
+   :db (component/using
+        (postgres/new-database)
+        [:db-config])
 
-   :web (component/using (pedestal/new-pedestal) [:db :service-map])))
+   :web (component/using
+         (pedestal/new-pedestal)
+         [:db :service-map])))
 
 (defn -main [& args]
   (component/start (system {})))

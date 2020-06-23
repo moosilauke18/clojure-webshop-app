@@ -1,4 +1,4 @@
-(defproject metro "0.0.1-SNAPSHOT"
+(defproject webshop-fullstack "0.0.1-SNAPSHOT"
   :description "FIXME: write description"
   :url "https://github.com/tbsschroeder/clojure-webshop-app"
   :license {:name "MIT"

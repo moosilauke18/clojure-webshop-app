@@ -16,7 +16,7 @@ Do you want to run the app virtualized with docker?
 ## Setup
 
 The app needs a postgres database. You can create a database with correct
-settings via (pls skip this step if you got docker):
+settings via:
 
     docker run --rm \
         -e POSTGRES_PASSWORD=clojure \
