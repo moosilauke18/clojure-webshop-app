@@ -16,10 +16,12 @@
   #{["/" :get (conj common-interceptors `views/shop) :route-name :index]
     ["/greet" :get views/respond-hello :route-name :greet]
     ["/health" :get (conj common-interceptors `health/health) :route-name :health]
+    ;; common routes for the frontend
     ["/checkout" :get (conj common-interceptors `views/checkout) :route-name :checkout]
     ["/article/inc" :post (conj common-interceptors `views/inc-article) :route-name :inc-article]
     ["/article/dec" :post (conj common-interceptors `views/dec-article) :route-name :dec-article]
     ["/article/rem" :post (conj common-interceptors `views/rem-article) :route-name :rem-article]
+    ;; additional routes for the api approach
     ["/api/article/inc" :post (conj common-interceptors `api/inc-article) :route-name :api-inc-article]
     ["/api/article/dec" :post (conj common-interceptors `api/dec-article) :route-name :api-dec-article]
     ["/api/article/rem" :post (conj common-interceptors `api/rem-article) :route-name :api-rem-article]

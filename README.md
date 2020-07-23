@@ -7,11 +7,11 @@ library. The repo is based on [n2o's ToDo app](https://github.com/n2o/component-
 
 ## Requirements
 
-Short and crisp: Always have [Docker](https://docs.docker.com/install/) installed.
+* [Docker](https://docs.docker.com/install/) 
+* [Docker Compose](https://docs.docker.com/compose/install/)
+* [Leiningen](https://leiningen.org/#install)
 
-Do you want to run the app virtualized with docker?
-* Yes: Then you will need [Docker Compose](https://docs.docker.com/compose/install/).
-* No: Please have [Leiningen](https://leiningen.org/#install) installed as build tool.
+Either you got Docker + Leingen or Docker Compose only.
 
 ## Setup
 
@@ -32,7 +32,7 @@ Then you can start the system the system:
 
 The service is reachable via http://localhost:8080 and the swagger file is on http://localhost:8080/swagger.
 
-### No Clojure/Leiningen installed?
+### No Docker + Leiningen installed?
 
 No problem, please use:
 

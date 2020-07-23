@@ -1,5 +1,5 @@
-(defproject webshop-fullstack "0.0.1-SNAPSHOT"
-  :description "FIXME: write description"
+(defproject webshop-fullstack "0.0.1-METRONOM"
+  :description "FullStack WebApp with Component, Pedestal and Hiccup"
   :url "https://github.com/tbsschroeder/clojure-webshop-app"
   :license {:name "MIT"
             :url "https://opensouArce.org/licenses/MIT"}
