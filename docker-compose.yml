@@ -10,7 +10,6 @@ services:
       - "POSTGRES_PASSWORD=clojure"
       - "POSTGRES_USER=clojure"
       - "POSTGRES_DB=clojure"
-
   clj:
     build:
       context: .
@@ -18,8 +17,30 @@ services:
     environment:
       - "DB_HOST=db"
       - "WEB_HOST=0.0.0.0"
+      - "OTEL_EXPORTER_JAEGER_ENDPOINT=http://signalfx:9080/v1/trace"
+      - "OTEL_EXPORTER_ZIPKIN_SERVICE_NAME=clj"
     ports:
       - "8080:8080"
-    command: java -jar app.jar
+    command: java -javaagent:./splunk-otel-javaagent.jar -Dotel.resource.attributes=service.name=clj,deployment.environment=local -jar app.jar
     depends_on:
       - db
+  signalfx:
+    links:
+    - clj
+    environment:
+      - SFX_ACCESS_TOKEN=${SIGNALFX_ACCESS_TOKEN}
+      - SFX_INGEST_URL=https://ingest.us1.signalfx.com
+      - SFX_API_URL=https://api.us1.signalfx.com
+      - SFX_REALM=us1
+      - SFX_ENVIRONMENT=local
+    image: quay.io/signalfx/signalfx-agent:5.9.1
+    expose:
+      - 9080
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /proc/:/host/proc/:ro
+      - /sys/fs/cgroup:/host/sys/fs/cgroup:ro
+      - /:/hostfs:ro
+      - type: bind
+        source: ./signalfx.yaml
+        target: /etc/signalfx/agent.yaml

@@ -1,5 +1,9 @@
 # WebShop Application with Component
 
+## Running with Splunk
+run `export SIGNALFX_ACCESS_TOKEN=XXX` or add it in an .env file in the root of the repo.
+run `docker-compose up`
+
 This backend provides a small web-application consisting of a [pedestal](http://pedestal.io/)
 service, and a database connection to persist items. These two components are compose in 
 a system with Stuart Sierra's [Component](https://github.com/stuartsierra/component) 
